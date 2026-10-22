@@ -48,10 +48,14 @@ the ig-* skills when they disagree.
      (70+). If burstiness fails, merge her sentences back the way she said them.
 5. **Cards.** Write `cards.json`: on-screen text, six words or fewer each, with
    a start time from the beat sheet. Include a title card for the series.
-6. **Motion graphics.** If the HyperFrames connector is available, compose the
-   cards and the title card with `brand/look.md`, render the video, and save
-   the link in `kit.md`. If it is not connected, leave `cards.json` ready and
-   say so.
+6. **Motion graphics.** HyperFrames' hosted `compose`/`render_video` refuse
+   Claude Code, so use the local `hyperframes` skill with
+   `npx hyperframes@0.8.185` (setup.sh installs both). Build `cards.json` as a
+   1080x1920 project in `reels/NNN-slug/graphics/` styled by `brand/look.md`,
+   following the skill's guide for cards over a talking head. If her footage
+   is in the folder, lay the cards over it in the same project. Run `check`,
+   show her the preview, render only after she approves, and save the MP4
+   path in `kit.md`.
 7. **Caption.** Run `/ig-caption` on the script. The caption carries the same
    single CTA as the video. Then `/ig-human` on the caption.
 8. **Cover.** Make a 1080x1920 cover in Canva (connector) with the hook card
