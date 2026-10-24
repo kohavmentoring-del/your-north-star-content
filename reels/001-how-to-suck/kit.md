@@ -2,7 +2,7 @@
 series: Attempting to Suck, episode 1
 format: talking head on the signature background, with B-roll popping in as inserts. ~62s
 status: script final, ready to film
-planned: TBD (America/New_York). {{N}} = days from posting date to Jan 1, 2027 (Oct 27 -> 66).
+planned: TBD (America/New_York). Countdown: a 60-day challenge that starts the day this posts. Day 0 must land before Jan 1, 2027 (post by Nov 1).
 
 Scores: hook 100 (about 87 without the scorer counting "Can" as a name), humanizer 87.4 PASS, loops on "learn how to fail".
 
@@ -25,7 +25,7 @@ Scores: hook 100 (about 87 without the scorer counting "Can" as a name), humaniz
 **1. Hook (0:00-0:04)**
 Say: "Can I actually learn how to fail before 2027? Can you?"
 Do: Start mid-motion, eyes down, putting the second earring in. Don't wait for it to finish: look up into the lens on "Can I" as your hand drops. Small tilt of the head on "fail". Pause half a second, then "Can you?" slower, eyebrows up, straight into the lens.
-Edit: card from frame 1, kicker **{{N}} DAYS LEFT**, Playfair **Can I learn to fail before 2027?** Slow push-in.
+Edit: calendar animation from frame 1: a small tear-off calendar page in the top corner (cream page, burgundy **60** in Playfair, **DAYS LEFT** in Montserrat). A blank page tears off and falls away to reveal 60. At ~1.5s it slides away and the Playfair card **Can I learn to fail before 2027?** takes over. Slow push-in.
 
 **2. (0:04-0:11)**
 Say: "We are taught from such a young age about success, but no one is teaching us how to fail."

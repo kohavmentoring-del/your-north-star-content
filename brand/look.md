@@ -41,4 +41,4 @@ Warm highlights, slightly lifted blacks, soft contrast, natural skin.
 - Format: talking head on that background, with B-roll popping in as small framed inserts beside her face.
 - Signature move: every reel opens with her putting on her signature earrings (the same pair every time), saying the hook mid-motion.
 - Hobbies on camera: running, matcha, walking New York.
-- Series device: Attempting to Suck opens with the countdown to Jan 1, 2027 ("N days left").
+- Series device: Attempting to Suck is a 60-day challenge. Every episode opens with a tear-off calendar page (cream, burgundy number in Playfair, "DAYS LEFT" in Montserrat); pages flip from the last episode's count to today's. Built in HyperFrames from the number-wheel block.
