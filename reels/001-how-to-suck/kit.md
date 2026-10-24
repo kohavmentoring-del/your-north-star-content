@@ -10,7 +10,7 @@ Scores: hook 100 (about 87 without the scorer counting "Can" as a name), humaniz
 - Phone vertical on the tripod, lens at your eye level, about an arm and a half away. Frame from mid-chest up, a little headroom.
 - You sitting on your bed, the photos on the wall behind you visible over your shoulders.
 - Light: face the window if it's daytime. Warm lamp behind you, off to one side, so the background glows (golden hour inside).
-- Prop: your matcha, in your hands or on the bed next to you.
+- Signature move: your signature earrings, the same pair every episode. Start with one already in and the other in your hand.
 - Wear the same kind of top as your future episodes will. Pick one color family you'll keep.
 - Mic close to you (or the phone close enough). Room quiet.
 
@@ -24,7 +24,7 @@ Scores: hook 100 (about 87 without the scorer counting "Can" as a name), humaniz
 
 **1. Hook (0:00-0:04)**
 Say: "Can I actually learn how to fail before 2027? Can you?"
-Do: Start looking down at your matcha. Put it down and look up into the lens on "Can I". Small tilt of the head on "fail". Pause half a second, then "Can you?" slower, eyebrows up, straight into the lens.
+Do: Start mid-motion, eyes down, putting the second earring in. Don't wait for it to finish: look up into the lens on "Can I" as your hand drops. Small tilt of the head on "fail". Pause half a second, then "Can you?" slower, eyebrows up, straight into the lens.
 Edit: card from frame 1, kicker **{{N}} DAYS LEFT**, Playfair **Can I learn to fail before 2027?** Slow push-in.
 
 **2. (0:04-0:11)**
@@ -54,7 +54,7 @@ Edit: insert: a photo of you speaking in Toronto if you have one, then a desk or
 
 **7. (0:40-0:50)**
 Say: "So trust me, I'm still learning that it's okay to fail, and that you can fail at something and still be good in so many other things."
-Do: Slower. This is the heart. Pick up your matcha, look at it, then back to the lens on "you can fail at something". Real smile on "so many other things".
+Do: Slower. This is the heart. Look down for a beat, then back to the lens on "you can fail at something". Real smile on "so many other things".
 Edit: card: **it's okay to fail**. Insert: berries.
 
 **8. (0:50-0:53)**
