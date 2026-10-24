@@ -35,3 +35,10 @@ No icon covers, clip-art or designed frames that look generated.
 
 ## Grade
 Warm highlights, slightly lifted blacks, soft contrast, natural skin.
+
+## Her world (repeat in every reel so people say "that's so you")
+- Signature background: her bed, the photos on the wall behind her, warm lamp glow. The city for special episodes.
+- Format: talking head on that background, with B-roll popping in as small framed inserts beside her face.
+- Prop: her matcha.
+- Hobbies on camera: running, matcha, walking New York.
+- Series device: Attempting to Suck opens with the countdown to Jan 1, 2027 ("N days left").

@@ -1,39 +1,79 @@
 # 001 - Can I actually learn how to fail before 2027? Can you?
 series: Attempting to Suck, episode 1
-format: storytelling reel, voiceover over B-roll, ~62s
-status: script final, waiting on voiceover + B-roll
-planned: TBD (America/New_York). Set {{N}} = days from posting date to Jan 1, 2027 (Oct 27 -> 66).
+format: talking head on the signature background, with B-roll popping in as inserts. ~62s
+status: script final, ready to film
+planned: TBD (America/New_York). {{N}} = days from posting date to Jan 1, 2027 (Oct 27 -> 66).
 
 Scores: hook 100 (about 87 without the scorer counting "Can" as a name), humanizer 87.4 PASS, loops on "learn how to fail".
-Look: brand/look.md. Captions Montserrat ExtraBold, 2-4 words, taxi yellow + 2px burgundy outline on dark/busy
-shots, burgundy on light shots. Cards in Playfair Display Italic. Warm cinematic grade throughout.
 
-## Production script
+## The set (signature background, same every episode)
+- Phone vertical on the tripod, lens at your eye level, about an arm and a half away. Frame from mid-chest up, a little headroom.
+- You sitting on your bed, the photos on the wall behind you visible over your shoulders.
+- Light: face the window if it's daytime. Warm lamp behind you, off to one side, so the background glows (golden hour inside).
+- Prop: your matcha, in your hands or on the bed next to you.
+- Wear the same kind of top as your future episodes will. Pick one color family you'll keep.
+- Mic close to you (or the phone close enough). Room quiet.
 
-| Time | Voiceover (record exactly) | Shots | On-screen card |
-| --- | --- | --- | --- |
-| 0:00-0:04 | Can I actually learn how to fail before 2027? Can you? | TRIPOD, to camera, beautiful light. Moving at frame 1: walk into frame and turn, or set down the matcha and look up, or a slow push-in. Eye contact on "Can you?" | Kicker (Montserrat, small): **{{N}} DAYS LEFT** / Main (Playfair Italic): **Can I learn to fail before 2027?** |
-| 0:04-0:11 | We are taught from such a young age about success, but no one is teaching us how to fail. | Walking down the street: wide, then a close step | captions only |
-| 0:11-0:20 | And I think failing is a big part of actually succeeding, because if we're so scared of failing, we're gonna quit so many things that are actually gonna make us succeed one day, | Matcha (hands, slow) -> running slows to a stop | captions only |
-| 0:20-0:29 | like the guy digging for diamonds who quits a second before he actually gets to them. | Diamond image (Canva MAHY8Y_0sDc), 3s, slow push-in -> back to running, picking up again | Playfair: **a second before the diamonds** |
-| 0:29-0:34 | At 26, I moved to New York, a completely new country, and started from scratch. | NYC street wide / skyline, you walking into frame | captions only |
-| 0:34-0:40 | In Toronto, I was a freaking manager, and here I'm back in school after 8 years. | Old photo of you speaking in Toronto if you have one -> desk, books or laptop | captions only |
-| 0:40-0:50 | So trust me, I'm still learning that it's okay to fail, and that you can fail at something and still be good in so many other things. | Berries, slow detail -> your face, warm light, a small smile | Playfair: **it's okay to fail** |
-| 0:50-0:53 | Welcome to episode 1 of Attempting to Suck. | TRIPOD, the same setup as the hook, straight to camera, hold still | Title card, Playfair: **Attempting to Suck** with kicker **EPISODE 1** |
-| 0:53-1:02 | Join me to learn how to become better at failing, and by the end of 2026, I'll tell you if learning to fail made me more successful. | TRIPOD, same setup, to camera (it closes the loop the hook opened) | last 2s, Playfair: **Join me** |
+## How to film it
+- One line per take. Start the take, wait one second, say the line, hold one second after. Do each line 2-3 times.
+- Talk to one person: your best friend, behind the lens. Eyes in the lens, not on the screen.
+- It's fine to restart a line mid-take. The edit cuts between takes, that's the style.
+- Energy: a bit more than normal conversation. Smile with your eyes on the lighter lines.
 
-## Recording notes
-- Read it like you're telling a friend. Pauses are fine; they get cut.
-- The long diamond sentence is one breath on purpose. If you need a breath, take it after "succeed one day,".
-- "Can you?" is a real question: look into the lens and slow down for it.
+## Direction, line by line (words unchanged)
+
+**1. Hook (0:00-0:04)**
+Say: "Can I actually learn how to fail before 2027? Can you?"
+Do: Start looking down at your matcha. Put it down and look up into the lens on "Can I". Small tilt of the head on "fail". Pause half a second, then "Can you?" slower, eyebrows up, straight into the lens.
+Edit: card from frame 1, kicker **{{N}} DAYS LEFT**, Playfair **Can I learn to fail before 2027?** Slow push-in.
+
+**2. (0:04-0:11)**
+Say: "We are taught from such a young age about success, but no one is teaching us how to fail."
+Do: Lean in a little, like you're telling a secret. Hands open on "success". Shake your head slightly on "no one".
+Edit: insert pops in beside you: walking down the street.
+
+**3. (0:11-0:20)**
+Say: "And I think failing is a big part of actually succeeding, because if we're so scared of failing, we're gonna quit so many things that are actually gonna make us succeed one day,"
+Do: This is your belief, so say it with conviction, not as a question. Hand to your chest on "I think". Take your breath after "one day,".
+Edit: inserts: matcha close-up, then running slowing to a stop.
+
+**4. (0:20-0:29)**
+Say: "like the guy digging for diamonds who quits a second before he actually gets to them."
+Do: Paint it with your hands: digging motion, then stop your hand just short on "a second before". Small, almost sad smile.
+Edit: the diamond image goes FULL SCREEN for 3s with a slow push-in. Card: **a second before the diamonds**. Music drops out for half a second after "quits".
+
+**5. (0:29-0:34)**
+Say: "At 26, I moved to New York, a completely new country, and started from scratch."
+Do: Back to warm and open. Slight shrug and a laugh on "from scratch".
+Edit: insert: NYC street or skyline.
+
+**6. (0:34-0:40)**
+Say: "In Toronto, I was a freaking manager, and here I'm back in school after 8 years."
+Do: Proud on "freaking manager" (eyebrows up, a little sass), then soften and laugh at yourself on "back in school".
+Edit: insert: a photo of you speaking in Toronto if you have one, then a desk or books.
+
+**7. (0:40-0:50)**
+Say: "So trust me, I'm still learning that it's okay to fail, and that you can fail at something and still be good in so many other things."
+Do: Slower. This is the heart. Pick up your matcha, look at it, then back to the lens on "you can fail at something". Real smile on "so many other things".
+Edit: card: **it's okay to fail**. Insert: berries.
+
+**8. (0:50-0:53)**
+Say: "Welcome to episode 1 of Attempting to Suck."
+Do: Sit up, straight into the lens, a small proud smile. Say it like it's the name of a show.
+Edit: title card, kicker **EPISODE 1**, Playfair **Attempting to Suck**.
+
+**9. (0:53-1:02)**
+Say: "Join me to learn how to become better at failing, and by the end of 2026, I'll tell you if learning to fail made me more successful."
+Do: Warm, inviting, like making a promise. Point gently at the lens on "Join me". On "I'll tell you", a little wink or knowing smile.
+Edit: card in the last 2s: **Join me**.
 
 ## Edit notes
-- Every line over 4s gets at least one shot change inside it (marked above).
-- Captions animate gently, one pop per caption group.
-- Music: soft, warm, low under the voice; it drops out for half a second after "quits a second before".
+- Talking head is the base. Inserts are small framed rectangles that pop in beside or below your face (not over it), each 1-3s, inside the safe zone.
+- Captions: Montserrat ExtraBold, 2-4 words, burgundy on the light room, taxi yellow + burgundy outline on dark inserts.
+- Jump cuts between takes are fine. Light warm grade.
 - Export 1080x1920, 30fps.
 
-## Still to make (after the voiceover exists)
-- caption.txt and cards.json: rebuild from this script (the current files are from an old version).
-- Cover: real photo of your face + one word in Playfair Italic. The old Canva cover is off-brand; replace it.
-- HyperFrames build: cards + captions over the B-roll and voiceover, preview before render.
+## Still to make after filming
+- caption.txt and cards.json: rebuild from this script (current files are from an old version).
+- Cover: a still of you from this shoot + one word in Playfair Italic.
+- HyperFrames build: talking head + inserts + cards + captions, preview before render.
