@@ -63,8 +63,8 @@ Do: Sit up, straight into the lens, a small proud smile. Say it like it's the na
 Edit: title card, kicker **EPISODE 1**, Playfair **Attempting to Suck**.
 
 **9. (0:53-1:02)**
-Say: "Join me to learn how to become better at failing, and by the end of 2026, I'll tell you if learning to fail made me more successful."
-Do: Warm, inviting, like making a promise. Point gently at the lens on "Join me". On "I'll tell you", a little wink or knowing smile.
+Say: "Join me to learn how to become better at failing, and by the end of 2026, I'll tell you if learning to fail made me more successful, or just enhanced the sabotaging voice inside my head."
+Do: Warm, inviting, like making a promise. Point gently at the lens on "Join me". On "I'll tell you", a knowing smile. On "or just enhanced the sabotaging voice", raise one eyebrow: you honestly don't know yet.
 Edit: card in the last 2s: **Join me**.
 
 ## Edit notes
