@@ -127,6 +127,7 @@ GRADE = "colortemperature=temperature=5400:mix=0.7,eq=contrast=1.07:brightness=-
 MAX_PAUSE_TIGHTEN = 0.22
 PAD_OUT = 0.07
 PAD_IN = 0.05
+END_PAD = 0.35  # breathing room after a piece's last word so sentences don't cut off mid-word
 W, H, FPS = 1080, 1920, 30
 
 
@@ -233,18 +234,24 @@ def cut(project):
         cursor = 0.0
         for i, p in enumerate(v["pieces"]):
             segs = sub_segments(words, p["in"], p["out"])
+            n = len(segs)
             seg_paths = []
             for j, (s, e) in enumerate(segs):
+                # extend only the piece's final segment so sentences get breathing
+                # room at the end instead of cutting off on the last word
+                render_e = e + END_PAD if j == n - 1 else e
                 out_path = pieces_dir / f"{vname}_{i:02d}_{j:02d}.mov"
                 if not out_path.exists():
-                    render_piece(source_clip, s, e, out_path)
+                    render_piece(source_clip, s, render_e, out_path)
                 seg_paths.append(out_path)
                 joined_list.append(out_path)
-                seg_cursor = cursor + sum((segs[k][1] - segs[k][0]) for k in range(j))
+                seg_cursor = cursor + sum(
+                    (segs[k][1] - segs[k][0] + (END_PAD if k == n - 1 else 0)) for k in range(j)
+                )
                 for w in words:
                     if s - 0.005 <= w["t"] < e:
                         cue_words.append((w["w"], seg_cursor + (w["t"] - s), seg_cursor + (min(w["end"], e) - s)))
-            piece_dur = sum(e - s for s, e in segs)
+            piece_dur = sum(e - s for s, e in segs) + END_PAD
             piece_log.append({"line": p["line"], "start": round(cursor, 3), "end": round(cursor + piece_dur, 3)})
             cursor += piece_dur
 
@@ -256,7 +263,7 @@ def cut(project):
         final = renders_dir / f"{vname}.mp4"
         sh(
             f'ffmpeg -y -v error -i "{joined}" '
-            f'-af "acompressor=threshold=0.1:ratio=2.5:attack=8:release=120,loudnorm=I=-10.5:TP=-1.0:LRA=7" '
+            f'-af "acompressor=threshold=0.178:ratio=2:attack=20:release=200,loudnorm=I=-10.5:TP=-1.0:LRA=7" '
             f'-c:v libx264 -crf 17 -preset medium -c:a aac -b:a 256k -movflags +faststart "{final}"'
         )
         duration = get_duration(final)
