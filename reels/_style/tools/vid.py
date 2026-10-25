@@ -168,7 +168,7 @@ CAPTION_FONT = "Montserrat ExtraBold"
 CAPTION_FONT_FILE = str(ROOT / "_style" / "fonts" / "Montserrat-ExtraBold.ttf")
 CAPTION_COLOR = "&H002A1A6B"  # ASS &HAABBGGRR: burgundy #6B1A2A, no alpha
 CAPTION_SIZE = 68
-CAPTION_Y = 500  # from MY-STYLE.md: on the wall above her head, y ~26% of 1920
+CAPTION_Y = 1350  # lower third: this footage is framed too tight for the usual above-head wall space
 WORDS_PER_CAPTION = 3
 
 
