@@ -8,11 +8,12 @@ reels/**/_edit/
 reels/**/EXPORTS/
 reels/**/B-ROLL/
 
-# Style profile: keep MY-STYLE.md and reusable tool scripts, drop the rest (large binaries / local venv).
+# Style profile: keep MY-STYLE.md, reusable tool scripts, and approved assets (_style/assets/
+# is the creator's approved-image library for reuse across episodes - keep it tracked).
+# Drop the rest (large binaries / local venv / inspo reference videos).
 reels/_style/tools/.venv/
 reels/_style/tools/__pycache__/
 reels/_style/references/
-reels/_style/assets/
 reels/_style/looks/*.mp4
 reels/_style/looks/*.jpg
 reels/_style/looks/*.jpeg
