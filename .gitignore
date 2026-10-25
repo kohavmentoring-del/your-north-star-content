@@ -1,0 +1,23 @@
+# Raw footage and generated editing artifacts (large binaries) — never committed.
+reels/**/*.MOV
+reels/**/*.mov
+reels/**/*.mp4
+reels/**/*.mp3
+reels/**/*.wav
+reels/**/_edit/
+reels/**/EXPORTS/
+reels/**/B-ROLL/
+
+# Style profile: keep MY-STYLE.md and reusable tool scripts, drop the rest (large binaries / local venv).
+reels/_style/tools/.venv/
+reels/_style/tools/__pycache__/
+reels/_style/references/
+reels/_style/assets/
+reels/_style/looks/*.mp4
+reels/_style/looks/*.jpg
+reels/_style/looks/*.jpeg
+reels/_style/looks/*.png
+
+__pycache__/
+*.pyc
+.DS_Store
