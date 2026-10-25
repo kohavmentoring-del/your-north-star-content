@@ -123,11 +123,120 @@ def intake(project):
     print(f"\n{len(rows)} lines written to _edit/transcript.md")
 
 
+GRADE = "colortemperature=temperature=5400:mix=0.7,eq=contrast=1.07:brightness=-0.02:saturation=1.14:gamma=0.97"
+MAX_PAUSE_TIGHTEN = 0.22
+PAD_OUT = 0.07
+PAD_IN = 0.05
+W, H, FPS = 1080, 1920, 30
+
+
+def load_words(edit_dir, clip_stem):
+    return json.loads((edit_dir / "transcripts" / f"{clip_stem}.json").read_text())
+
+
+def sub_segments(words, in_t, out_t):
+    """Split [in_t, out_t] into sub-segments, cutting internal pauses >= MAX_PAUSE_TIGHTEN."""
+    piece_words = [w for w in words if in_t - 0.01 <= w["t"] < out_t + 0.01]
+    if not piece_words:
+        return [(in_t, out_t)]
+    segs = []
+    seg_start = max(in_t, piece_words[0]["t"] - PAD_IN)
+    for prev, w in zip(piece_words, piece_words[1:]):
+        gap = w["t"] - prev["end"]
+        if gap >= MAX_PAUSE_TIGHTEN:
+            seg_end = min(out_t, prev["end"] + PAD_OUT)
+            segs.append((seg_start, seg_end))
+            seg_start = max(in_t, w["t"] - PAD_IN)
+    seg_end = min(out_t, piece_words[-1]["end"] + PAD_OUT)
+    segs.append((seg_start, seg_end))
+    return segs
+
+
+def render_piece(clip_path, s, e, out_path):
+    d = e - s
+    vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,"
+          f"crop={W}:{H},setpts=PTS-STARTPTS,fps={FPS},{GRADE},format=yuv420p")
+    af = f"afade=t=in:d=0.02,afade=t=out:st={max(d-0.03,0):.3f}:d=0.03,aresample=48000"
+    sh(
+        f'ffmpeg -y -v error -ss {s:.3f} -i "{clip_path}" -t {d:.3f} '
+        f'-vf "{vf}" -af "{af}" '
+        f'-c:v libx264 -crf 16 -preset fast -c:a pcm_s16le "{out_path}"'
+    )
+
+
+def cut(project):
+    proj = ROOT / project
+    edit = proj / "_edit"
+    pieces_dir = edit / "pieces"
+    renders_dir = edit / "renders"
+    pieces_dir.mkdir(parents=True, exist_ok=True)
+    renders_dir.mkdir(parents=True, exist_ok=True)
+
+    data = json.loads((edit / "edit.json").read_text())
+    source_clip = proj / data["source_clip"]
+    words = load_words(edit, source_clip.stem)
+
+    for vname, v in data["versions"].items():
+        if "from" in v:
+            continue  # derived versions (e.g. global_speed) handled after base versions
+        print(f"=== cutting version '{vname}' ===")
+        joined_list = []
+        piece_log = []  # (line id, start offset in final cut, end offset)
+        cursor = 0.0
+        for i, p in enumerate(v["pieces"]):
+            segs = sub_segments(words, p["in"], p["out"])
+            seg_paths = []
+            for j, (s, e) in enumerate(segs):
+                out_path = pieces_dir / f"{vname}_{i:02d}_{j:02d}.mov"
+                if not out_path.exists():
+                    render_piece(source_clip, s, e, out_path)
+                seg_paths.append(out_path)
+                joined_list.append(out_path)
+            piece_dur = sum(e - s for s, e in segs)
+            piece_log.append({"line": p["line"], "start": round(cursor, 3), "end": round(cursor + piece_dur, 3)})
+            cursor += piece_dur
+
+        concat_txt = pieces_dir / f"{vname}_concat.txt"
+        concat_txt.write_text("".join(f"file '{p.resolve()}'\n" for p in joined_list))
+        joined = renders_dir / f"{vname}_joined.mov"
+        sh(f'ffmpeg -y -v error -f concat -safe 0 -i "{concat_txt}" -c copy "{joined}"')
+
+        final = renders_dir / f"{vname}.mp4"
+        sh(
+            f'ffmpeg -y -v error -i "{joined}" '
+            f'-af "acompressor=threshold=0.1:ratio=2.5:attack=8:release=120,loudnorm=I=-10.5:TP=-1.0:LRA=7" '
+            f'-c:v libx264 -crf 17 -preset medium -c:a aac -b:a 256k -movflags +faststart "{final}"'
+        )
+        duration = get_duration(final)
+        (renders_dir / f"{vname}_pieces.json").write_text(json.dumps(piece_log, indent=1))
+        print(f"  -> {final} ({duration:.1f}s)")
+
+    for vname, v in data["versions"].items():
+        if "global_speed" not in v:
+            continue
+        base = renders_dir / f"{v['from']}.mp4"
+        sp = v["global_speed"]
+        final = renders_dir / f"{vname}.mp4"
+        print(f"=== deriving '{vname}' from '{v['from']}' at {sp}x ===")
+        sh(
+            f'ffmpeg -y -v error -i "{base}" '
+            f'-vf "setpts=PTS/{sp}" -af "atempo={sp}" '
+            f'-c:v libx264 -crf 17 -preset medium -c:a aac -b:a 256k -movflags +faststart "{final}"'
+        )
+        base_log = json.loads((renders_dir / f"{v['from']}_pieces.json").read_text())
+        scaled = [{"line": p["line"], "start": round(p["start"]/sp, 3), "end": round(p["end"]/sp, 3)} for p in base_log]
+        (renders_dir / f"{vname}_pieces.json").write_text(json.dumps(scaled, indent=1))
+        duration = get_duration(final)
+        print(f"  -> {final} ({duration:.1f}s)")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     project = sys.argv[2]
     if cmd == "intake":
         intake(project)
+    elif cmd == "cut":
+        cut(project)
     else:
         print(f"unknown subcommand: {cmd}")
         sys.exit(1)
