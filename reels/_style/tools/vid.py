@@ -164,6 +164,53 @@ def render_piece(clip_path, s, e, out_path):
     )
 
 
+CAPTION_FONT = "Montserrat ExtraBold"
+CAPTION_FONT_FILE = str(ROOT / "_style" / "fonts" / "Montserrat-ExtraBold.ttf")
+CAPTION_COLOR = "&H002A1A6B"  # ASS &HAABBGGRR: burgundy #6B1A2A, no alpha
+CAPTION_SIZE = 68
+CAPTION_Y = 500  # from MY-STYLE.md: on the wall above her head, y ~26% of 1920
+WORDS_PER_CAPTION = 3
+
+
+def words_to_captions(cue_words):
+    """Group (text, start, end) word tuples into 2-4 word caption cues."""
+    cues = []
+    for i in range(0, len(cue_words), WORDS_PER_CAPTION):
+        group = cue_words[i:i + WORDS_PER_CAPTION]
+        text = " ".join(w[0] for w in group).lower()
+        start = group[0][1]
+        end = group[-1][2]
+        cues.append((text, start, end))
+    return cues
+
+
+def write_ass(cues, path, video_w=W, video_h=H):
+    header = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {video_w}
+PlayResY: {video_h}
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,{CAPTION_FONT},{CAPTION_SIZE},{CAPTION_COLOR},&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,1.2,8,140,140,{CAPTION_Y},1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+    def ts(t):
+        h = int(t // 3600)
+        m = int((t % 3600) // 60)
+        s = t % 60
+        return f"{h:d}:{m:02d}:{s:05.2f}"
+
+    lines = [header]
+    for text, start, end in cues:
+        lines.append(f"Dialogue: 0,{ts(start)},{ts(end)},Caption,,0,0,0,,{text}\n")
+    Path(path).write_text("".join(lines))
+
+
 def cut(project):
     proj = ROOT / project
     edit = proj / "_edit"
@@ -182,6 +229,7 @@ def cut(project):
         print(f"=== cutting version '{vname}' ===")
         joined_list = []
         piece_log = []  # (line id, start offset in final cut, end offset)
+        cue_words = []  # (text, final_start, final_end) for captions
         cursor = 0.0
         for i, p in enumerate(v["pieces"]):
             segs = sub_segments(words, p["in"], p["out"])
@@ -192,6 +240,10 @@ def cut(project):
                     render_piece(source_clip, s, e, out_path)
                 seg_paths.append(out_path)
                 joined_list.append(out_path)
+                seg_cursor = cursor + sum((segs[k][1] - segs[k][0]) for k in range(j))
+                for w in words:
+                    if s - 0.005 <= w["t"] < e:
+                        cue_words.append((w["w"], seg_cursor + (w["t"] - s), seg_cursor + (min(w["end"], e) - s)))
             piece_dur = sum(e - s for s, e in segs)
             piece_log.append({"line": p["line"], "start": round(cursor, 3), "end": round(cursor + piece_dur, 3)})
             cursor += piece_dur
@@ -209,7 +261,10 @@ def cut(project):
         )
         duration = get_duration(final)
         (renders_dir / f"{vname}_pieces.json").write_text(json.dumps(piece_log, indent=1))
+        (renders_dir / f"{vname}_cues.json").write_text(json.dumps(cue_words, indent=1))
         print(f"  -> {final} ({duration:.1f}s)")
+
+        burn_captions(vname, final, cue_words, renders_dir)
 
     for vname, v in data["versions"].items():
         if "global_speed" not in v:
@@ -226,8 +281,27 @@ def cut(project):
         base_log = json.loads((renders_dir / f"{v['from']}_pieces.json").read_text())
         scaled = [{"line": p["line"], "start": round(p["start"]/sp, 3), "end": round(p["end"]/sp, 3)} for p in base_log]
         (renders_dir / f"{vname}_pieces.json").write_text(json.dumps(scaled, indent=1))
+        base_cues = json.loads((renders_dir / f"{v['from']}_cues.json").read_text())
+        scaled_cues = [(w, round(s/sp, 3), round(e/sp, 3)) for w, s, e in base_cues]
+        (renders_dir / f"{vname}_cues.json").write_text(json.dumps(scaled_cues, indent=1))
         duration = get_duration(final)
         print(f"  -> {final} ({duration:.1f}s)")
+
+        burn_captions(vname, final, scaled_cues, renders_dir)
+
+
+def burn_captions(vname, final_path, cue_words, renders_dir):
+    cues = words_to_captions(cue_words)
+    ass_path = renders_dir / f"{vname}_captions.ass"
+    write_ass(cues, ass_path)
+    captioned = renders_dir / f"{vname}_captioned.mp4"
+    fonts_dir = str(Path(CAPTION_FONT_FILE).parent)
+    sh(
+        f'ffmpeg -y -v error -i "{final_path}" '
+        f'-vf "ass=\'{ass_path}\':fontsdir=\'{fonts_dir}\'" '
+        f'-c:v libx264 -crf 17 -preset medium -c:a copy -movflags +faststart "{captioned}"'
+    )
+    print(f"  -> {captioned} (captions burned in)")
 
 
 if __name__ == "__main__":
