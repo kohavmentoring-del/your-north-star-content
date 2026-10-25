@@ -1,0 +1,161 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: visible; }
+    @font-face { font-family: "Montserrat ExtraBold"; src: local("Montserrat"); }
+    .wall-card { filter: drop-shadow(0 8px 20px rgba(0,0,0,0.45)); }
+    .card-inner { background: #F6ECDD; border: 6px solid #fff; border-radius: 4px; padding: 14px; box-sizing: border-box; }
+    .card-photo { width: 100%; height: 220px; object-fit: cover; border-radius: 2px; display: block; }
+    .card-text { font-family: "Playfair Display"; font-style: italic; font-weight: 600; font-size: 34px;
+      color: #6B1A2A; margin-top: 10px; line-height: 1.2; text-align: center; }
+    .search-bar { margin-top: 10px; background: #fff; border: 2px solid #C9A07A; border-radius: 24px;
+      padding: 10px 16px; display: flex; align-items: center; gap: 8px; }
+    .search-icon { font-size: 20px; }
+    .search-text { font-family: "Montserrat"; font-weight: 700; font-size: 22px; color: #24160F; }
+    .full-screen { background: #000; }
+    .full-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: center center; }
+    .full-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #6B1A2A, #24160F); }
+    .full-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 100%); }
+    .full-text-wrap { position: absolute; left: 0; right: 0; top: 760px; text-align: center; padding: 0 80px; }
+    .full-kicker { font-family: "Montserrat"; font-weight: 800; letter-spacing: 6px; font-size: 28px; color: #F6B511; margin-bottom: 18px; }
+    .full-title { font-family: "Playfair Display"; font-style: italic; font-weight: 600; font-size: 74px; color: #F6ECDD; line-height: 1.15; }
+  </style>
+  <div id="root" data-composition-id="cards" data-width="1080" data-height="1920">
+    
+    <div id="card-0" class="clip wall-card side-right" data-start="0.15" data-duration="2.4" data-track-index="1"
+      style="position:absolute; left:700px; top:360px; width:340px;">
+      <div id="card-0-inner" class="card-anim" style="opacity:0;">
+        <div class="card-inner" style="transform:rotate(5deg);">
+          <img src="assets/images/line1-calendar-pad.png" class="card-photo" />
+          <div class="card-text">60 DAYS LEFT</div>
+        </div>
+      </div>
+    </div>
+    <div id="card-1" class="clip wall-card side-left" data-start="4.27" data-duration="2.6" data-track-index="1"
+      style="position:absolute; left:40px; top:760px; width:340px;">
+      <div id="card-1-inner" class="card-anim" style="opacity:0;">
+        <div class="card-inner" style="transform:rotate(-5deg);">
+          <img src="assets/images/line2-walking.png" class="card-photo" />
+          
+        <div class="search-bar">
+          <span class="search-icon">&#128269;</span>
+          <span class="search-text">how do you learn to fail?</span>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div id="card-2" class="clip wall-card side-right" data-start="9.13" data-duration="2.4" data-track-index="1"
+      style="position:absolute; left:700px; top:360px; width:340px;">
+      <div id="card-2-inner" class="card-anim" style="opacity:0;">
+        <div class="card-inner" style="transform:rotate(5deg);">
+          <img src="assets/images/line3-matcha.png" class="card-photo" />
+          <div class="card-text">failing = succeeding?</div>
+        </div>
+      </div>
+    </div>
+    <div id="card-3" class="clip wall-card side-left" data-start="14.703" data-duration="2.3" data-track-index="1"
+      style="position:absolute; left:40px; top:760px; width:340px;">
+      <div id="card-3-inner" class="card-anim" style="opacity:0;">
+        <div class="card-inner" style="transform:rotate(-5deg);">
+          <img src="assets/images/line3-running.png" class="card-photo" />
+          
+        </div>
+      </div>
+    </div>
+    <div id="card-4" class="clip wall-card side-right" data-start="24.19" data-duration="2.6" data-track-index="1"
+      style="position:absolute; left:700px; top:360px; width:340px;">
+      <div id="card-4-inner" class="card-anim" style="opacity:0;">
+        <div class="card-inner" style="transform:rotate(5deg);">
+          <img src="assets/images/line5-nyc-street.png" class="card-photo" />
+          <div class="card-text">NEW YORK CITY.<br>starting from scratch.</div>
+        </div>
+      </div>
+    </div>
+    <div id="card-5" class="clip wall-card side-left" data-start="33.49" data-duration="2.8" data-track-index="1"
+      style="position:absolute; left:40px; top:760px; width:340px;">
+      <div id="card-5-inner" class="card-anim" style="opacity:0;">
+        <div class="card-inner" style="transform:rotate(-5deg);">
+          <img src="assets/images/line6-toronto-generic.png" class="card-photo" />
+          
+        <div class="search-bar">
+          <span class="search-icon">&#128269;</span>
+          <span class="search-text">is it normal to start over at 26?</span>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div id="card-6" class="clip wall-card side-right" data-start="49.99" data-duration="2.6" data-track-index="1"
+      style="position:absolute; left:700px; top:360px; width:340px;">
+      <div id="card-6-inner" class="card-anim" style="opacity:0;">
+        <div class="card-inner" style="transform:rotate(5deg);">
+          <img src="assets/images/line7-berries.png" class="card-photo" />
+          <div class="card-text">it's okay to fail.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="full-0" class="clip full-screen" data-start="19.573" data-duration="2.233" data-track-index="2"
+      style="position:absolute;inset:0;">
+      <div id="full-0-inner" class="full-anim" style="position:absolute;inset:0;opacity:0;">
+        <img src="assets/images/line4-diamond.png" class="full-photo" />
+        <div class="full-scrim"></div>
+        <div class="full-text-wrap">
+          
+          <div class="full-title">a second before<br>the diamonds</div>
+        </div>
+      </div>
+    </div>
+    <div id="full-1" class="clip full-screen" data-start="57.96" data-duration="2.35" data-track-index="2"
+      style="position:absolute;inset:0;">
+      <div id="full-1-inner" class="full-anim" style="position:absolute;inset:0;opacity:0;">
+        <div class="full-bg"></div>
+        <div class="full-scrim"></div>
+        <div class="full-text-wrap">
+          <div class="full-kicker">EPISODE 1</div>
+          <div class="full-title">Attempting<br>to Suck</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+        
+    tl.fromTo("#card-0-inner", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.15);
+    tl.to("#card-0-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 2.1999999999999997);
+    tl.set("#card-0-inner", { opacity: 0 }, 2.55);
+    
+    tl.fromTo("#card-1-inner", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 4.27);
+    tl.to("#card-1-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 6.52);
+    tl.set("#card-1-inner", { opacity: 0 }, 6.869999999999999);
+    
+    tl.fromTo("#card-2-inner", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 9.13);
+    tl.to("#card-2-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 11.180000000000001);
+    tl.set("#card-2-inner", { opacity: 0 }, 11.530000000000001);
+    
+    tl.fromTo("#card-3-inner", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 14.703);
+    tl.to("#card-3-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 16.653);
+    tl.set("#card-3-inner", { opacity: 0 }, 17.003);
+    
+    tl.fromTo("#card-4-inner", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 24.19);
+    tl.to("#card-4-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 26.44);
+    tl.set("#card-4-inner", { opacity: 0 }, 26.790000000000003);
+    
+    tl.fromTo("#card-5-inner", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 33.49);
+    tl.to("#card-5-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 35.94);
+    tl.set("#card-5-inner", { opacity: 0 }, 36.29);
+    
+    tl.fromTo("#card-6-inner", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 49.99);
+    tl.to("#card-6-inner", { opacity: 0, duration: 0.35, ease: "power2.in" }, 52.24);
+    tl.set("#card-6-inner", { opacity: 0 }, 52.59);
+        
+    tl.fromTo("#full-0-inner", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 19.573);
+    tl.to("#full-0-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 21.506);
+    tl.set("#full-0-inner", { opacity: 0 }, 21.806);
+    tl.fromTo("#full-0-inner .full-photo", { scale: 1.0 }, { scale: 1.08, duration: 2.233, ease: "none" }, 19.573);
+    
+    tl.fromTo("#full-1-inner", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 57.96);
+    tl.to("#full-1-inner", { opacity: 0, duration: 0.3, ease: "power2.in" }, 60.010000000000005);
+    tl.set("#full-1-inner", { opacity: 0 }, 60.31);
+    tl.fromTo("#full-1-inner .full-photo", { scale: 1.0 }, { scale: 1.08, duration: 2.35, ease: "none" }, 57.96);
+    window.__timelines["cards"] = tl;
+  </script>
+</template>
