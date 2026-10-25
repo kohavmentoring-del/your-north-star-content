@@ -56,7 +56,17 @@ Whether a video gets a title, what it says and how it looks is the creator's cal
 
 **Fonts — per kit.md (her signature set, use for cards/titles going forward):** Playfair Display (regular + italic) for titles and cards, Montserrat (ExtraBold for captions/labels). Download both from Google Fonts into `_style/fonts/`.
 
-**Colors — her palette (from kit.md, the signature-background episodes):** burgundy (cards/captions on light shots), taxi yellow (caption highlight on dark inserts), cream (card backgrounds). Confirm/extend with hex codes once the first style brief is reviewed with her.
+**Colors — her palette** (confirmed against her saved "Your North Star" design system, 2026-10-25):
+| Token | Hex | Use |
+|---|---|---|
+| Taxi yellow | `#F6B511` | Hooks/captions on dark or busy footage, always with a thin burgundy outline (2-3px). Highlighted word in captions. |
+| Burgundy | `#6B1A2A` | Text on light footage and cream cards. The outline around yellow. Never on brown or dark footage — it disappears. |
+| Brown | `#5A3A28` | Caption boxes on busy footage, carousel/Story backgrounds. |
+| Espresso | `#24160F` | Body text on cream, dark quote cards. |
+| Cream | `#F6ECDD` | Carousel/quote card backgrounds, card backgrounds. |
+| Tan | `#C9A07A` | Dividers and small details only. |
+
+One text rule: burgundy on light/soft footage, taxi yellow + burgundy outline when footage is too dark for burgundy to read. Nothing else — no white captions, no extra colors.
 
 **A menu of elements** (all keep the creator on screen except the chapter card/full-screen card). Propose specific ones tied to specific lines; they pick.
 
